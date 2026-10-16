@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#040715">
+    <title>Alui Archives</title>
+    <link rel="stylesheet" href="archives.css?v=20261006-7">
+    <link rel="stylesheet" href="../story-archives-transition.css?v=20261006-4">
+    <script src="archives-arrival.js?v=20261006-6" defer></script>
+    <script src="archives.js?v=20261006-9" defer></script>
+</head>
+<body>
+    <main class="archives-environment">
+        <div class="archive-star-field" aria-hidden="true"></div>
+        <div class="archive-nebula archive-nebula-one" aria-hidden="true"></div>
+        <div class="archive-nebula archive-nebula-two" aria-hidden="true"></div>
+
+        <header class="archives-viewer-heading" aria-label="Alui Archives viewer">
+            <span class="viewer-mark" aria-hidden="true">✦</span>
+            <span>PERSONAL ARCHIVE</span>
+            <button class="archives-return" id="archivesReturnButton" type="button">← BACK TO STORY</button>
+        </header>
+
+        <section class="archive-viewer" aria-label="Archive case viewer">
+            <div class="archive-stage" id="archiveStage" aria-live="polite"></div>
+
+            <nav class="archive-controls" aria-label="Archive page controls">
+                <button class="archive-control" id="archivePrevious" type="button" aria-label="Previous archive page">
+                    <span aria-hidden="true">←</span><span>PREVIOUS</span>
+                </button>
+                <p class="archive-page-status" id="archivePageStatus" aria-live="polite"></p>
+                <button class="archive-control" id="archiveNext" type="button" aria-label="Next archive page">
+                    <span>NEXT</span><span aria-hidden="true">→</span>
+                </button>
+            </nav>
+        </section>
+
+        <template id="archivePageTemplate">
+            <article class="archive-paper" aria-labelledby="archiveCaseTitle">
+                <div class="paper-grain" aria-hidden="true"></div>
+                <div class="paper-inner-edge" aria-hidden="true"></div>
+                <aside class="archive-photo-placeholder" aria-label="Photo placeholder">
+                    <div class="photo-placeholder-inner">
+                        <span class="photo-placeholder-icon" aria-hidden="true">✧</span>
+                        <span class="photo-placeholder-label">PHOTO</span>
+                        <span class="photo-placeholder-note">TO BE ADDED</span>
+                    </div>
+                </aside>
+
+                <header class="archive-paper-header">
+                    <div class="archive-paper-topline">
+                        <p class="archive-brand">ALUI ARCHIVES</p>
+                        <p class="archive-case-number">CASE <span data-field="case-number">001</span></p>
+                    </div>
+                    <div class="archive-heading-rule" aria-hidden="true"><span>✦</span></div>
+                    <h1 class="archive-case-title" id="archiveCaseTitle" data-field="case-title">THE BEGINNING</h1>
+                    <p class="archive-file-note" data-field="case-subtitle">A PERSONAL RECORD · KEPT WITH CARE</p>
+                </header>
+
+                <section class="archive-paper-content" aria-label="Case notes">
+                    <p data-field="case-content">Story content will be added later.</p>
+                </section>
+
+                <footer class="archive-paper-footer">
+                    <div class="archive-metadata">
+                        <p><span class="metadata-label">COLLECTION</span><span class="metadata-value">PERSONAL</span></p>
+                        <p><span class="metadata-label">STATUS</span><span class="metadata-value">PRESERVED</span></p>
+                    </div>
+                    <div class="archive-stamp" aria-label="Archived, private collection">
+                        <span>ARCHIVED</span>
+                        <small>PRIVATE COLLECTION</small>
+                    </div>
+                    <p class="archive-page-number" aria-label="Page number"><span data-field="page-number">01</span></p>
+                </footer>
+            </article>
+        </template>
+    </main>
+</body>
+</html>
+
+

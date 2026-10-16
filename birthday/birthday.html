@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080817">
+  <title>For Alui — Birthday Experience</title>
+  <link rel="stylesheet" href="birthday.css">
+  <script src="birthday.js" defer></script>
+</head>
+<body>
+  <main class="experience" id="experience" data-scene="archives">
+    <div class="ambient" aria-hidden="true">
+      <div class="nebula nebula-one"></div><div class="nebula nebula-two"></div><div class="cloud-haze"></div>
+      <div class="star-field" id="starField"></div>
+    </div>
+    <canvas class="effects-canvas" id="effectsCanvas" aria-hidden="true"></canvas>
+
+    <section class="scene is-active" id="scene-archives" aria-labelledby="archives-title">
+      <div class="archive-intro"><span class="eyebrow"><i>✦</i> ALUI ARCHIVES · FINAL FILE</span>
+        <article class="file-paper">
+          <div class="file-topline"><span>PERSONAL RECORD</span><span>CASE 004</span></div>
+          <div class="file-seal">✧</div>
+          <h1 id="archives-title">THE CLASSIFIED INCIDENT</h1>
+          <p class="file-note">Incident details: classified.</p>
+          <div class="redacted-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span class="archived-stamp">ARCHIVED<br><small>WITH CARE</small></span>
+        </article>
+        <p class="archive-tease">The archive is complete.<br><span>One last file is ready to close.</span></p>
+        <button class="button button-primary" id="continueButton">Continue <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="scene void-scene" id="scene-void" aria-live="polite" aria-label="A quiet pause">
+      <div class="void-copy"><p id="waitLine" class="wait-line">Wait...</p><p id="oneMoreLine" class="one-more-line">I have one more thing for you.</p>
+        <button class="button button-quiet hidden" id="openButton">Open <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-promise" aria-live="polite">
+      <div class="promise-copy"><span class="eyebrow">A VERY SERIOUS ANNOUNCEMENT</span>
+        <p class="promise-question">Remember what I promised you?</p>
+        <h1 class="promise-line" id="promiseLine">I said I'd <span>phodunga a bomb.</span> 💀</h1>
+        <p class="promise-footnote">(A completely harmless, extremely birthday-ish one.)</p>
+        <button class="button button-primary hidden" id="countdownButton">Okay, show me <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="scene countdown-scene" id="scene-countdown" aria-live="assertive">
+      <p class="countdown-label">PLEASE STAND BY FOR A VERY SILLY SURPRISE</p>
+      <div class="count-number" id="countNumber">5</div>
+      <p class="countdown-caption">No actual bombs. Just birthday magic. ✨</p>
+      <div class="blackout" id="blackout"></div>
+    </section>
+
+    <section class="scene reveal-scene" id="scene-reveal" aria-live="polite">
+      <div class="party-floaters" aria-hidden="true">✦ <b>♡</b> ✨ <i>✦</i> ♡</div>
+      <div class="birthday-payoff"><span class="eyebrow">THE MOST IMPORTANT CASE OF ALL</span>
+        <p class="you-survived">You survived. 😂</p>
+        <h1>HAPPY<br><em>18TH</em><br>ALUI! <span>🎉</span></h1>
+        <div class="birthday-duo" aria-label="A panda and Alui celebrating together">
+          <div class="duo-avatar panda-avatar" role="img" aria-label="Cute panda holding a birthday star">
+            <svg viewBox="0 0 120 142" aria-hidden="true">
+              <ellipse class="avatar-shadow" cx="60" cy="132" rx="38" ry="7" />
+              <path class="panda-body" d="M28 130c1-24 9-39 32-39s31 15 32 39z" />
+              <path class="panda-ear" d="M24 35a17 17 0 1 1 34 0v12H24zM62 35a17 17 0 1 1 34 0v12H62z" />
+              <ellipse class="panda-face" cx="60" cy="53" rx="38" ry="34" />
+              <ellipse class="panda-patch" cx="44" cy="52" rx="9" ry="12" transform="rotate(25 44 52)" />
+              <ellipse class="panda-patch" cx="76" cy="52" rx="9" ry="12" transform="rotate(-25 76 52)" />
+              <circle class="panda-eye" cx="45" cy="52" r="2.7"/><circle class="panda-eye" cx="75" cy="52" r="2.7"/>
+              <ellipse class="panda-muzzle" cx="60" cy="65" rx="12" ry="8"/><path class="panda-smile" d="M56 66q4 5 8 0" />
+              <path class="panda-bow" d="M82 83q-13-12-13 0t13 0q13 12 13 0t-13 0"/><circle class="panda-bow-knot" cx="82" cy="83" r="3"/>
+              <path class="panda-arm" d="M34 103q-13 2-13 14t13 8M86 103q13 2 13 14t-13 8"/>
+              <path class="clap-arm panda-clap-left" d="M39 96q8 3 13 15"/><path class="clap-arm panda-clap-right" d="M81 96q-8 3-13 15"/><circle class="clap-hand panda-hand-left" cx="51" cy="113" r="4.5"/><circle class="clap-hand panda-hand-right" cx="69" cy="113" r="4.5"/><path class="clap-spark" d="m60 103 2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1z"/>
+              <path class="panda-star" d="m99 72 3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1z" />
+            </svg>
+            <span class="duo-name">Panda</span>
+          </div>
+          <div class="duo-avatar alui-avatar" role="img" aria-label="A sweet illustrated avatar of Alui celebrating her birthday">
+            <svg viewBox="0 0 120 142" aria-hidden="true">
+              <ellipse class="avatar-shadow" cx="60" cy="132" rx="38" ry="7" />
+              <path class="alui-hair-back" d="M25 59q-5-40 35-43 42 2 36 48l-4 51H30z" />
+              <path class="alui-body" d="M25 130q2-35 35-36t35 36z" />
+              <path class="alui-neck" d="M50 78h20v19H50z" />
+              <ellipse class="alui-face" cx="60" cy="55" rx="29" ry="34" />
+              <path class="alui-hair-top" d="M30 53q-8-38 29-39 33-2 33 31-13-3-22-21-9 17-40 21z" />
+              <path class="alui-fringe" d="M32 42q17 2 31-17 7 14 28 20l-3 9q-15-2-26-15-11 13-29 14z" />
+              <circle class="alui-eye" cx="49" cy="58" r="2"/><circle class="alui-eye" cx="71" cy="58" r="2"/>
+              <path class="alui-smile" d="M54 70q6 6 12 0"/><circle class="alui-blush" cx="41" cy="68" r="4"/><circle class="alui-blush" cx="79" cy="68" r="4"/>
+              <path class="alui-collar" d="m49 94 11 12 11-12"/><path class="alui-heart" d="M60 117q-11-8-6-13 4-3 6 1 2-4 6-1 5 5-6 13" />
+              <path class="clap-arm alui-clap-left" d="M38 101q8 2 14 12"/><path class="clap-arm alui-clap-right" d="M82 101q-8 2-14 12"/><circle class="clap-hand alui-hand-left" cx="52" cy="113" r="4.5"/><circle class="clap-hand alui-hand-right" cx="68" cy="113" r="4.5"/><path class="clap-spark" d="m60 103 2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1z"/>
+              <path class="alui-star" d="m96 39 3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1z" />
+            </svg>
+            <span class="duo-name">Alui</span>
+          </div>
+        </div>
+        <p class="reveal-subline">Told you I'd phodunga a bomb. 😂</p>
+        <button class="button button-primary hidden" id="cakeButton">Make a wish with me <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="scene cake-scene" id="scene-cake" aria-labelledby="cake-title">
+      <div class="cake-copy"><span class="eyebrow">A LITTLE WISH, JUST FOR YOU</span>
+        <h1 id="cake-title">Make a wish first. <span>❤️</span></h1>
+        <div class="cake-visual" id="cakeVisual" aria-label="A strawberry and cream birthday cake with one candle">
+          <div class="candle"><button class="flame-button" id="flameButton" aria-label="Tap the candle flame to blow it out"><span class="flame"></span></button><span class="candle-wick"></span><span class="candle-stick"></span></div>
+          <div class="cake-top"><span class="cake-pearl pearl-one"></span><span class="cake-pearl pearl-two"></span><span class="cake-pearl pearl-three"></span></div>
+          <div class="cake-body"><div class="cake-frosting"></div><div class="cake-lower-tier"></div><div class="cake-tier-ribbon"></div><span class="cake-number">18</span><span class="cake-icing icing-one"></span><span class="cake-icing icing-two"></span><span class="cake-icing icing-three"></span><span class="cake-icing icing-four"></span><span class="cake-berry berry-one"></span><span class="cake-berry berry-two"></span><span class="cake-berry berry-three"></span><span class="cake-berry berry-four"></span><span class="cake-berry berry-five"></span></div>
+          <div class="cake-plate"></div>
+          <div class="cake-cut-line" id="cakeCutLine"></div>
+          <div class="cake-half cake-left"></div><div class="cake-half cake-right"></div>
+          <div class="smoke-puff" id="smokePuff"><span class="smoke-heart">♥</span></div>
+          <span class="wish-sparkle" id="wishSparkle" aria-hidden="true">✦</span>
+          <div class="cake-note hidden" id="cakeNote"><span>✦ A LITTLE WISH FOR YOU ✦</span><p>May every little wish you make<br>find its way to you.</p><strong>Happy 18th, Alui ❤️</strong></div>
+        </div>
+        <div class="cake-duo" id="cakeDuo" aria-label="Panda and Alui are clapping for you"></div>
+        <p class="cake-instruction" id="cakeInstruction">Tap the candle to blow it out.</p>
+        <button class="button button-primary hidden" id="envelopeButton">Now cut the cake <span>→</span></button>
+      </div>
+      <button class="envelope hidden" id="envelope" aria-label="Open the envelope for Alui"><span class="envelope-heart">♥</span><span>For Alui</span><small>There’s something inside.</small></button>
+    </section>
+
+    <section class="scene letter-scene" id="scene-letter" aria-labelledby="letter-title">
+      <div class="letter-layout">
+        <article class="letter-paper">
+          <header><span class="letter-star">✦</span><p class="eyebrow">A LETTER, JUST FOR YOU</p><h1 id="letter-title">For Alui <span>❤️</span></h1></header>
+          <section><h2>YOU’RE MORE THAN JUST A FRIEND.</h2><p>Alui, you're more than just a friend to me.<br><br>Tere saath mujhe genuinely safe feel hota hai.<br>Mai tujhse koi bhi baat kar sakta hu.<br><br>Kabhi-kabhi tu bas ek bacchi ki tarah lagti hai,<br>jo sirf pyari-pyari baatein karna jaanti hai. ❤️</p></section>
+          <section><h2>SO, JUST KNOW THIS.</h2><p>I trust you.<br><br>You're important to me.<br><br>And I'm here.<br><br>Jab tak tu chahe.<br><br>Koi zabardasti nahi.<br>Koi expectations nahi.<br><br>Bas...<br><br>Jab tak tu chahe, I'm here. ❤️</p></section>
+          <section><h2>AND FOR YOUR 18TH...</h2><p>I just hope...<br><br>Jo bhi tu chahti hai,<br>jo bhi tere liye genuinely important hai,<br><br>tu usse achieve kare.<br><br>Aur jab usse paane ke raste mein problems aayein,<br>toh unse ladne ki himmat aur strength tujhme hamesha rahe.<br><br>I hope life gives you<br>a lot of reasons to smile.<br><br>And whatever comes next...<br><br>I hope you're happy. ❤️</p><p class="letter-signature">With love, always.<br><span>♥</span></p></section>
+          <button class="button button-primary letter-gifts-button" id="openGiftsButton">One last little surprise <span>→</span></button>
+        </article>
+        <aside class="letter-side" aria-label="A space for Alui's photo, with Panda">
+          <div class="letter-panda" id="letterPanda" aria-hidden="true"></div>
+          <p class="photo-eyebrow">A MEMORY TO KEEP</p>
+          <h2>Alui’s photo</h2>
+          <div class="polaroid" id="polaroid"><div class="photo-frame" id="photoFrame"><img id="aluiPhotoPreview" alt="Your selected photo of Alui" hidden><div class="photo-placeholder" id="photoPlaceholder"><span>＋</span><small>Add a photo here</small></div></div><p class="polaroid-caption" id="photoCaption">A little memory</p></div>
+          <label class="memory-date-label" for="memoryDate">Add a date</label>
+          <input class="memory-date" id="memoryDate" type="date" aria-label="Choose the date for this memory">
+          <input class="sr-only" id="aluiPhotoInput" type="file" accept="image/*" aria-label="Choose a photo of Alui from this device">
+          <label class="photo-picker" for="aluiPhotoInput">Choose photo</label>
+        </aside>
+      </div>
+    </section>
+
+    <section class="scene gifts-scene" id="scene-gifts" aria-labelledby="gifts-title">
+      <div class="gifts-content">
+        <span class="eyebrow"><i>✦</i> A FEW THINGS THAT FEEL LIKE YOU</span>
+        <h1 id="gifts-title">A little box of <em>us.</em></h1>
+        <p class="gifts-intro">Pick a gift, Alui. Panda has been keeping these safe. 🎁</p>
+        <div class="gift-shelf">
+          <button class="gift-box gift-snacks" data-gift="snacks" aria-expanded="false" aria-controls="giftReveal">
+            <span class="gift-lid"><i></i></span><span class="gift-ribbon"></span><span class="gift-bow">✿</span>
+            <span class="gift-label">01 <small>something yummy</small></span>
+          </button>
+          <button class="gift-box gift-makeup" data-gift="makeup" aria-expanded="false" aria-controls="giftReveal">
+            <span class="gift-lid"><i></i></span><span class="gift-ribbon"></span><span class="gift-bow">✿</span>
+            <span class="gift-label">02 <small>a little glam</small></span>
+          </button>
+          <button class="gift-box gift-panda" data-gift="panda" aria-expanded="false" aria-controls="giftReveal">
+            <span class="gift-lid"><i></i></span><span class="gift-ribbon"></span><span class="gift-bow">✿</span>
+            <span class="gift-label">03 <small>from your panda</small></span>
+          </button>
+        </div>
+        <div class="gift-reveal" id="giftReveal" aria-live="polite" aria-atomic="true">
+          <div class="gift-art snack-art" aria-hidden="true"><span class="chips-pack"><b>UNCLE<br>CHIPPS</b><i>CLASSIC<br>SALTED</i></span><span class="chocolate-bar"><b>▰</b><i>CHOCOLATE</i></span></div>
+          <div class="gift-art makeup-art" aria-hidden="true"><span class="makeup-compact"><i></i><b>✦</b></span><span class="makeup-lipstick"><i></i></span><span class="makeup-brush"><i></i></span></div>
+          <span class="gift-reveal-icon" id="giftRevealIcon">✦</span>
+          <div class="gift-copy"><p class="gift-reveal-kicker" id="giftRevealKicker">A LITTLE SURPRISE</p><h2 id="giftRevealTitle">Tap a box to open it</h2><p id="giftRevealText">Each one has a tiny piece of you in it.</p></div>
+          <div class="gift-panda-pop" id="giftPandaPop" aria-hidden="true"></div>
+        </div>
+        <div class="gift-finale hidden" id="giftFinale">
+          <p>That’s all three—your favourite things, and a little piece of us. ❤️</p>
+          <button class="button button-primary" id="finishBirthdayButton">One last thing <span>→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene birthday-ending" id="scene-ending" aria-labelledby="ending-title">
+      <div class="ending-content">
+        <span class="eyebrow"><i>✦</i> A LITTLE NOTE BEFORE YOU GO</span>
+        <div class="ending-duo" id="endingDuo" aria-hidden="true"></div>
+        <h1 id="ending-title">Keep being <em>you.</em></h1>
+        <p>All these silly little chapters brought us here.<br>I’m really glad they did.</p>
+        <p class="ending-birthday-wish">Happy 18th, Alui. I hope the year ahead is full of all the things that make you smile. ❤️</p>
+        <span class="ending-signoff">Always cheering for you.</span>
+      </div>
+    </section>
+
+    <aside class="panda-guide" id="pandaGuide" aria-hidden="true" hidden>
+      <div class="panda-guide-art" id="pandaGuideArt"></div>
+      <p class="panda-bubble" id="pandaGuideLine"></p>
+    </aside>
+
+    <div class="sr-only" id="announcement" aria-live="polite"></div>
+  </main>
+  <audio id="birthdaySong" preload="auto">
+     <source src="../archives/music/happy-birthday.mp3" type="audio/mpeg">
+    </audio>  
+  <button id="birthdayMusicButton" type="button">
+    ♫ Play Birthday Music
+  </button>
+</body>
+</html>
